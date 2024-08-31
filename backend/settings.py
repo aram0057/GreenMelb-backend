@@ -14,6 +14,7 @@ from pathlib import Path
 # import pymysql
 import os
 # pymysql.install_as_MySQLdb()
+# from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,7 @@ SECRET_KEY = 'django-insecure-=xb%rgobx-(cr19e8)ydjtt85t4@v&*+-k7qz4ccxkvrc#+v0^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -39,13 +40,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'corsheaders',
     'django.contrib.contenttypes',
+    'whitenoise.runserver_nostatic',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'classification',
-    'corsheaders',
     'rest_framework',
     'maps'
 ]
@@ -53,20 +54,29 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', 
+    'django.middleware.common.CommonMiddleware'
 ]
+
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://greenmelb.com"
-]
+
+# CORS_ALLOWED_ORIGINS = [
+#      "http://localhost:3000",
+#      "http://greenmelb.com"
+# ]
+
+# CORS_ALLOW_HEADERS = (*default_headers, "Access-Control-Allow-Origin")
+
+# CORS_ALLOW_METHODS = (
+#     "GET",
+#     "POST"
+# )
 
 ROOT_URLCONF = 'backend.urls'
 
