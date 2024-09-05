@@ -1,16 +1,20 @@
+# serializers.py
 from rest_framework import serializers
-# from .models import Waste
-# from rest_framework import serializers
-from .models import Waste, Centre  # Ensure both Waste and Centre are imported
+from .models import MelbourneSuburbs, Waste, Centre
+
+class MelbourneSuburbsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MelbourneSuburbs
+        fields = ['postcode', 'suburb']
 
 class WasteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Waste
-        fields = '__all__'
+        fields = ['waste_id', 'waste_type']
 
 class CentreSerializer(serializers.ModelSerializer):
-    waste = WasteSerializer()  # This will nest the WasteSerializer inside the CentreSerializer
+    waste = WasteSerializer()  # Include waste details in the response
 
     class Meta:
         model = Centre
-        fields = '__all__'
+        fields = ['centre_id', 'name', 'address', 'latitude', 'longitude', 'waste']

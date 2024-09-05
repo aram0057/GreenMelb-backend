@@ -102,14 +102,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MelbourneWaste',  # Replace with your database name
+        'USER': 'gitgood',  # Replace with your MySQL username
+        'PASSWORD': 'gitgood5120',  # Replace with your MySQL password
+        'HOST': 'wastemelb.cl2mgccki4df.ap-southeast-2.rds.amazonaws.com',  # Since it's running locally
+        'PORT': '3306',  # Default MySQL port
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
