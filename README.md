@@ -13,7 +13,10 @@
 
 ## Project Overview
 
-GreenMelb.com is a web application designed to help residents of Melbourne effectively manage their waste and promote sustainable practices. The frontend is built using React, providing a dynamic and interactive user experience.
+Welcome to the GreenMelb.com backend repository! This project is designed to support a web application that aims to improve residential waste management in Melbourne. The backend is built using Django and integrates with various APIs to provide a seamless user experience.
+
+
+
 ![image](https://github.com/user-attachments/assets/3365d6d0-5168-453f-bf62-af3ff5a682bd)
 
 ## Features
@@ -36,13 +39,10 @@ GreenMelb.com is a web application designed to help residents of Melbourne effec
 ![image](https://github.com/user-attachments/assets/48a6863b-1f58-4266-b34e-2cae0c1fcee8)
 
 ## Technologies Used
-
-- **Frontend**: React
-- **State Management**: Redux (or Context API)
-- **Routing**: React Router
-- **Styling**: CSS, SCSS (or styled-components)
-- **Mapping**: Mapbox API
-- **Testing**: Jest, React Testing Library
+- **Django**: A high-level Python web framework for building robust web applications.
+- **Django REST Framework**: To create RESTful APIs for communication between frontend and backend.
+- **PostgreSQL/MySQL**: Relational database management system for storing application data.
+- **Mapbox API**: For integrating interactive maps into the application.
 
 ## Installation
 
